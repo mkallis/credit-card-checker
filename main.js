@@ -57,6 +57,19 @@ const validateCred = digits => {
 
     console.log('double every other');
     console.log(transformedDigits);
+
+     // Subtract 9 from any digit that is greater than 9
+     transformedDigits = transformedDigits.map(digit => {
+        if (digit > 9) {
+            console.log(digit + ' is greater than 9')
+            return (digit - 9);
+        } else {
+            return digit;
+        }
+    })
+
+    console.log('subtract 9')
+    console.log(transformedDigits);
 }
 
 console.log(validateCred(valid1));
