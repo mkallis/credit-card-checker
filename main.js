@@ -70,6 +70,14 @@ const validateCred = digits => {
 
     console.log('subtract 9')
     console.log(transformedDigits);
+
+    // Sum all digits
+    const sumOfTransformedDigits = transformedDigits.reduce((accumulator, currentValue) => accumulator + currentValue);
+    console.log('sum: ', sumOfTransformedDigits);
+
+    // Sum including check digit
+    const sumOfDigits = sumOfTransformedDigits + checkDigit;
+    console.log('total sum: ', sumOfDigits);
 }
 
 console.log(validateCred(valid1));
