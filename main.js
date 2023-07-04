@@ -48,6 +48,15 @@ const validateCred = digits => {
     console.log('reversed array')
     console.log(transformedDigits);
 
+    // Double every other element
+    transformedDigits = transformedDigits.map((digit, index) => {
+        // console.log('value: ', digit);
+        // console.log('index: ', index);
+        return index % 2 === 0 ? digit * 2 : digit
+    })
+
+    console.log('double every other');
+    console.log(transformedDigits);
 }
 
 console.log(validateCred(valid1));
