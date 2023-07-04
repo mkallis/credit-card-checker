@@ -82,7 +82,7 @@ const findInvalidCards = (cardsArray => {
 
 // Returns an array of companies that have mailed out cards with invalid numbers
 const idInvalidCardCompanies = (invalidCardNumbers => {
-    invalidCardCompanies = []
+    const invalidCardCompanies = []
 
     // find which company issued invalid card
     invalidCardNumbers.forEach(number => {
@@ -103,20 +103,16 @@ const idInvalidCardCompanies = (invalidCardNumbers => {
             default:
                 console.log('Company not found');
         }
-        console.log('company: ', company);
 
         // if company is not already in the array, add it
         if (!invalidCardCompanies.includes(company)) {
-            console.log('new company! adding to array');
             invalidCardCompanies.push(company);
-        } else {
-            console.log('company already in array');
         }
     }
     )
-    
-    console.log('list of companies')
-    console.log(invalidCardCompanies);
+
+    return invalidCardCompanies;
 })
 
-idInvalidCardCompanies(findInvalidCards(batch));
+// test that an array of companies is returned
+console.log(idInvalidCardCompanies(findInvalidCards(batch)));
