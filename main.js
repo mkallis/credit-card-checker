@@ -74,14 +74,8 @@ const validateCred = digits => {
 
 // Returns an array of invalid card number arrays
 const findInvalidCards = (cardsArray => {
-    // console.log(cardsArray)
-    let invalidCards = cardsArray.filter(cardNumber => {
-        // console.log(cardNumber);
-        console.log(validateCred(cardNumber));
-        validateCred(cardNumber);
-    })
+    let invalidCards = cardsArray.filter(cardNumber => !validateCred(cardNumber));
 
-    console.log('invalid cards: ', invalidCards);
     return invalidCards;
 })
 
