@@ -78,6 +78,9 @@ const validateCred = digits => {
     // Sum including check digit
     const sumOfDigits = sumOfTransformedDigits + checkDigit;
     console.log('total sum: ', sumOfDigits);
+
+    // Is it valid? (Is it divisible by 10?)
+    return sumOfDigits % 10 === 0;
 }
 
 console.log(validateCred(valid1));
