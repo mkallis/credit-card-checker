@@ -24,12 +24,14 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Doubles every other digit of the array, starting from the left of the check digit
-const generateDoubledArray = digits => {
-    const startingPoint = digits.length - 2; // starting point is right-most digit after the check digit ✅
-    for (let i = startingPoint; i >= 0; i = i -2) {
-        console.log(digits[i]); // should print every other digit from right to left ✅
-    }
-}
+// const generateDoubledArray = digits => {
+//     const startingPoint = digits.length - 2; // starting point is right-most digit after the check digit ✅
+//     for (let i = startingPoint; i >= 0; i = i -2) {
+//         console.log(digits[i]); // should print every other digit from right to left ✅
+//     }
+// }
+
+
 
 
 // Returns true when an array contains digits of a valid credit card number and false when it's invalid
@@ -37,8 +39,15 @@ const validateCred = digits => {
     const checkDigit = digits[digits.length - 1]
     console.log('the check digit is: ', checkDigit);
 
-    generateDoubledArray(digits);
+    // Remove the last element
+    let transformedDigits = digits.slice(0, digits.length -1);
+    console.log(transformedDigits); 
+
+    // Reverse the new array so we can iterate from right to left
+    transformedDigits.reverse();
+    console.log('reversed array')
+    console.log(transformedDigits);
 
 }
 
-validateCred(valid1);
+console.log(validateCred(valid1));
