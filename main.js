@@ -115,4 +115,4 @@ const idInvalidCardCompanies = (invalidCardNumbers => {
 })
 
 // test that an array of companies is returned
-console.log(idInvalidCardCompanies(findInvalidCards(batch)));
+// console.log(idInvalidCardCompanies(findInvalidCards(batch)));
