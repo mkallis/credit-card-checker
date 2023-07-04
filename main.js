@@ -23,64 +23,51 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5]
 
 
-// Doubles every other digit of the array, starting from the left of the check digit
-// const generateDoubledArray = digits => {
-//     const startingPoint = digits.length - 2; // starting point is right-most digit after the check digit ✅
-//     for (let i = startingPoint; i >= 0; i = i -2) {
-//         console.log(digits[i]); // should print every other digit from right to left ✅
-//     }
-// }
-
-
-
-
 // Returns true when an array contains digits of a valid credit card number and false when it's invalid
 const validateCred = digits => {
     const checkDigit = digits[digits.length - 1]
-    console.log('the check digit is: ', checkDigit);
 
     // Remove the last element
     let transformedDigits = digits.slice(0, digits.length -1);
-    console.log(transformedDigits); 
 
     // Reverse the new array so we can iterate from right to left
     transformedDigits.reverse();
-    console.log('reversed array')
-    console.log(transformedDigits);
 
     // Double every other element
     transformedDigits = transformedDigits.map((digit, index) => {
-        // console.log('value: ', digit);
-        // console.log('index: ', index);
         return index % 2 === 0 ? digit * 2 : digit
     })
-
-    console.log('double every other');
-    console.log(transformedDigits);
 
      // Subtract 9 from any digit that is greater than 9
      transformedDigits = transformedDigits.map(digit => {
         if (digit > 9) {
-            console.log(digit + ' is greater than 9')
             return (digit - 9);
         } else {
             return digit;
         }
     })
 
-    console.log('subtract 9')
-    console.log(transformedDigits);
 
     // Sum all digits
     const sumOfTransformedDigits = transformedDigits.reduce((accumulator, currentValue) => accumulator + currentValue);
-    console.log('sum: ', sumOfTransformedDigits);
 
     // Sum including check digit
     const sumOfDigits = sumOfTransformedDigits + checkDigit;
-    console.log('total sum: ', sumOfDigits);
 
     // Is it valid? (Is it divisible by 10?)
     return sumOfDigits % 10 === 0;
 }
 
+// valid numbers should return true
 console.log(validateCred(valid1));
+console.log(validateCred(valid2));
+console.log(validateCred(valid3));
+console.log(validateCred(valid4));
+console.log(validateCred(valid5));
+
+// invalid numbers should return false
+console.log(validateCred(invalid1));
+console.log(validateCred(invalid2));
+console.log(validateCred(invalid3));
+console.log(validateCred(invalid4));
+console.log(validateCred(invalid5));
