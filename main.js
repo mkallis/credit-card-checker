@@ -59,15 +59,30 @@ const validateCred = digits => {
 }
 
 // valid numbers should return true
-console.log(validateCred(valid1));
-console.log(validateCred(valid2));
-console.log(validateCred(valid3));
-console.log(validateCred(valid4));
-console.log(validateCred(valid5));
+// console.log(validateCred(valid1));
+// console.log(validateCred(valid2));
+// console.log(validateCred(valid3));
+// console.log(validateCred(valid4));
+// console.log(validateCred(valid5));
 
 // invalid numbers should return false
-console.log(validateCred(invalid1));
-console.log(validateCred(invalid2));
-console.log(validateCred(invalid3));
-console.log(validateCred(invalid4));
-console.log(validateCred(invalid5));
+// console.log(validateCred(invalid1));
+// console.log(validateCred(invalid2));
+// console.log(validateCred(invalid3));
+// console.log(validateCred(invalid4));
+// console.log(validateCred(invalid5));
+
+// Returns an array of invalid card number arrays
+const findInvalidCards = (cardsArray => {
+    // console.log(cardsArray)
+    let invalidCards = cardsArray.filter(cardNumber => {
+        // console.log(cardNumber);
+        console.log(validateCred(cardNumber));
+        validateCred(cardNumber);
+    })
+
+    console.log('invalid cards: ', invalidCards);
+    return invalidCards;
+})
+
+console.log(findInvalidCards(batch));
